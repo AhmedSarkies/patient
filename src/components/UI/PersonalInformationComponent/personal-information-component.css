@@ -1,0 +1,29 @@
+.personal__information-info .personal__information-name {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
+.personal__information-info img.personal__information-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #773479;
+}
+
+@media screen and (max-width: 768px) {
+  .logout__btn {
+    font-size: 1rem !important;
+  }
+}
+@media screen and (max-width: 576px) {
+  .logout__btn,
+  .personal__information-info .personal__information-name {
+    font-size: 0.8rem !important;
+    padding: 0.25rem 0.5rem;
+  }
+  .personal__information-info img.personal__information-img {
+    width: 35px;
+    height: 35px;
+  }
+}

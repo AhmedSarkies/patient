@@ -1,0 +1,129 @@
+.login {
+  background: url("../assets/images/image-02.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: fit-content;
+  min-height: 100vh;
+  padding: 50px 0;
+}
+.login .login__title {
+  text-align: center;
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  margin-bottom: 30px;
+}
+.login .login__title .login__title-highlight {
+  font-weight: 600;
+  font-size: 2rem;
+}
+.login__form {
+  width: 100%;
+  padding: 70px 60px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
+}
+.login__form img.logo {
+  width: 125px !important;
+}
+.login__form .form__title {
+  color: #0f4fff;
+  line-height: 45px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.login__form .form__group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+.login__form .form__group label {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.login__form .form__group .form__input {
+  background: transparent;
+  border: 1px solid #ababab;
+  border-radius: 7px;
+  padding: 10px 16px;
+  width: 100%;
+  outline: #0f4fff;
+  caret-color: #0f4fff;
+  color: #0f4fff;
+  font-size: 1.1rem;
+  transition: all 0.3s ease-in-out;
+}
+.login__form .form__group .form__input:focus {
+  border: 1px solid #0f4fff;
+}
+.login__form .form__group .form__input:focus::placeholder {
+  color: transparent;
+  opacity: 0;
+  font-size: 0;
+}
+.login__form .reset__password,
+.login__form .reset__password a {
+  color: #777777;
+  font-size: 1.1rem;
+}
+.login__form .reset__password a {
+  font-weight: 700;
+}
+.login__form .login__btn {
+  width: 100%;
+  background-color: #0f4fff;
+  color: #fff;
+  padding: 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.login__form .login__btn:hover {
+  background-color: #012998;
+}
+@media only screen and (max-width: 768px) {
+  .login__form {
+    padding: 50px 45px;
+  }
+  .login .login__title {
+    font-size: 1.25rem;
+  }
+  .login .login__title .login__title-highlight {
+    font-size: 1.5rem;
+  }
+  .login__form .form__title {
+    font-size: 1.5rem;
+  }
+  .login__form .form__group label {
+    font-size: 0.9rem;
+  }
+  .login__form .form__group .form__input {
+    font-size: 1rem;
+  }
+  .login__form .reset__password,
+  .login__form .reset__password a {
+    color: #777777;
+    font-size: 0.9rem;
+  }
+  .login__form .login__btn {
+    font-size: 1.1rem;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .login__form {
+    padding: 35px 25px;
+  }
+  .login .login__title {
+    font-size: 1.1rem;
+  }
+  .login .login__title .login__title-highlight {
+    font-size: 1.22rem;
+  }
+}

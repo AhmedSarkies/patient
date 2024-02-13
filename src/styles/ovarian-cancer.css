@@ -1,0 +1,14 @@
+.form__radio-group-ovarian-cancer {
+    width: 60%;
+}
+
+@media screen and (max-width: 992px) {
+    .form__radio-group-ovarian-cancer {
+        width: 70%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .form__radio-group-ovarian-cancer {
+        width: 100%;
+    }
+}

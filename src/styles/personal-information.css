@@ -1,0 +1,96 @@
+.page__title h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: #773479;
+}
+.form__group {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.form__group .form__input {
+  border: 1px solid #ababab;
+  border-radius: 7px;
+  padding: 7px 10px;
+  font-size: 1rem;
+  font-weight: 300;
+  background-color: transparent;
+  outline: #0f4fff;
+  caret-color: #0f4fff;
+  color: #0f4fff;
+}
+.form__group .form__input:focus {
+  border: 1px solid #0f4fff;
+  font-weight: 500;
+}
+.form__group .form__input:focus::placeholder {
+  color: transparent;
+  opacity: 0;
+  font-size: 0;
+}
+.form__group label {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  color: #525252;
+}
+.col__submit {
+  padding-right: 1.5rem !important;
+}
+.save__btn {
+  background-color: #773479;
+  color: #fff;
+  border: 2px solid #773479;
+  outline: none;
+  border-radius: 6px;
+  padding: 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 1200px) {
+  .page__title h1,
+  .form__container {
+    padding: 1.5rem 0 0 1.5rem;
+  }
+  .form__container {
+    padding-right: 1rem;
+  }
+  .contact__information,
+  .contact__information h1 {
+    padding: 0 !important;
+  }
+  .col__submit {
+    padding-right: 0.5rem !important;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .form__container {
+    padding-right: 1.5rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .page__title h1,
+  .form__container {
+    padding: 0.5rem 0 0 1.25rem;
+  }
+  .form__container {
+    padding-right: 1.25rem;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .page__title h1,
+  .form__container {
+    padding: 0.5rem 0 0 0.75rem;
+  }
+  .form__container {
+    padding-right: 0.5rem;
+  }
+}

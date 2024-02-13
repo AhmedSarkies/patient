@@ -1,0 +1,28 @@
+.form__radio-group {
+  border: 2px solid #ababab8f;
+  border-radius: 7px;
+  padding: 10px;
+}
+.form__radio {
+  width: min-content;
+  height: min-content;
+}
+.form__radio-label,
+.form__radio input {
+  cursor: pointer;
+}
+select.form__input {
+  background-color: #ececec !important;
+  color: #ababab !important;
+}
+select.form__input:focus {
+  outline: none !important;
+  border: 1px solid #ababab !important;
+  font-weight: 300 !important;
+  
+}
+select.form__input option {
+  color: #000 !important;
+  background-color: #f4f4f4 !important;
+  border-radius: none !important;
+}

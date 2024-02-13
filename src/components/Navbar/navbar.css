@@ -1,0 +1,118 @@
+.nav__menu__container {
+  background-color: #773479;
+  height: 100%;
+  min-height: 100vh;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  opacity: 0;
+  z-index: 0;
+  transition: all 0.4s ease-in-out;
+}
+.overlay.active {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: block;
+  opacity: 1;
+  transition: all 0.4s ease-in-out;
+}
+.nav__menu__container .logo__container {
+  padding-top: 0;
+}
+.nav__menu__container .logo__container img.logo {
+  cursor: pointer;
+}
+.nav__menu__container .nav__toggle {
+  position: absolute;
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  font-weight: 600;
+  display: none;
+  opacity: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.nav__menu__container .nav__toggle.open {
+  top: 1rem;
+  right: -5rem;
+  background-color: #773479;
+  color: #fff;
+}
+.nav__menu__container .nav__toggle.close {
+  top: 10px;
+  right: 10px;
+  color: #fff;
+  border: 2px solid;
+}
+.nav__menu__item {
+  padding: 0;
+  list-style: none;
+  transition: all 0.3s ease-in-out;
+}
+.nav__menu__item a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+.nav__menu__item:hover,
+.nav__menu__item a.active {
+  color: #773479;
+  background-color: #fff;
+}
+.nav__menu__item:hover a {
+  color: #773479;
+}
+.nav__menu__item a:focus {
+  outline: none;
+}
+.nav__menu__item a svg {
+  fill: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.nav__menu__item:hover a svg,
+.nav__menu__item a.active svg {
+  fill: #773479 !important;
+}
+.nav__menu__item.nav__menu__item__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  background-color: #773479;
+}
+@media only screen and (max-width: 1200px) {
+  .nav__menu__container .nav__toggle.open,
+  .nav__menu__container .nav__toggle.close {
+    display: block;
+    opacity: 1;
+    transition: all 0.4s ease-in-out;
+  }
+  .nav__menu__container {
+    width: 280px !important;
+    position: absolute;
+    left: -281px;
+    top: 0;
+    padding: 0;
+    transition: all 0.4s ease-in-out;
+  }
+  .nav__menu__container.active {
+    left: 0;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .nav__menu__container .nav__toggle {
+    font-size: 1rem;
+    padding: 4px 7px;
+  }
+  .nav__menu__container .nav__toggle.open {
+    top: 1.5rem;
+    right: -4rem;
+  }
+}
