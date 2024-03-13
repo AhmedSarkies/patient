@@ -1,42 +1,29 @@
-import React, { useState } from "react";
-
-import { Container, Row, Col } from "reactstrap";
-
+import React from "react";import { Container, Row, Col } from "reactstrap";
 import { Helmet, PersonalInformationComponent } from "../components";
-
 import "../styles/personal-information.css";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import InputError from "../components/InputError/InputError";
+import { personalInformationSchema } from "../schema/personalInformations";
 
 const PersonalInformation = () => {
-  const [name, setName] = useState("");
-  const [id, setId] = useState("");
-  const [code, setCode] = useState("");
-  const [birth, setBirth] = useState("");
-  const [age, setAge] = useState("");
-  const [status, setStatus] = useState("");
-  const [address, setAddress] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [homeNumber, setHomeNumber] = useState("");
-  const [relativeName, setRelativeName] = useState("");
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(personalInformationSchema),
+  });
 
-  const reset = () => {
-    setName("");
-    setId("");
-    setCode("");
-    setBirth("");
-    setAge("");
-    setStatus("");
-    setAddress("");
-    setPhone("");
-    setEmail("");
-    setHomeNumber("");
-    setRelativeName("");
-  };
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    console.log("submit");
-    reset();
+  const onSubmit = (data) => {
+    try {
+      personalInformationSchema.parse(data);
+      console.log(data);
+      reset();
+    } catch (error) {
+      console.error(error.errors);
+    }
   };
 
   return (
@@ -58,7 +45,7 @@ const PersonalInformation = () => {
                   className="form"
                   action=""
                   method="post"
-                  onSubmit={submitHandler}
+                  onSubmit={handleSubmit(onSubmit)}
                 >
                   <Row className="d-flex justify-align-center justify-content-start">
                     <Col lg="12">
@@ -72,9 +59,9 @@ const PersonalInformation = () => {
                             type="text"
                             placeholder="Enter your name"
                             id="name"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            {...register("name", { required: true })}
                           />
+                          <InputError error={errors.name} />
                         </div>
                       </Col>
                     </Col>
@@ -85,11 +72,10 @@ const PersonalInformation = () => {
                         </label>
                         <input
                           className="form__input"
-                          type="text"
+                          type="number"
                           placeholder="Enter your id"
                           id="id"
-                          value={id}
-                          onChange={(e) => setId(e.target.value)}
+                          {...register("id", { required: true })}
                         />
                       </div>
                     </Col>
@@ -103,8 +89,7 @@ const PersonalInformation = () => {
                           type="text"
                           placeholder="Enter your code"
                           id="code"
-                          value={code}
-                          onChange={(e) => setCode(e.target.value)}
+                          {...register("code", { required: true })}
                         />
                       </div>
                     </Col>
@@ -118,8 +103,7 @@ const PersonalInformation = () => {
                           type="text"
                           placeholder="Enter your date of birth"
                           id="birth"
-                          value={birth}
-                          onChange={(e) => setBirth(e.target.value)}
+                          {...register("birth", { required: true })}
                         />
                       </div>
                     </Col>
@@ -133,8 +117,7 @@ const PersonalInformation = () => {
                           type="text"
                           placeholder="Enter your age"
                           id="age"
-                          value={age}
-                          onChange={(e) => setAge(e.target.value)}
+                          {...register("age", { required: true })}
                         />
                       </div>
                     </Col>
@@ -148,8 +131,7 @@ const PersonalInformation = () => {
                           type="text"
                           placeholder="Enter your marital status"
                           id="status"
-                          value={status}
-                          onChange={(e) => setStatus(e.target.value)}
+                          {...register("status", { required: true })}
                         />
                       </div>
                     </Col>
@@ -163,8 +145,7 @@ const PersonalInformation = () => {
                           type="text"
                           placeholder="Enter your address"
                           id="address"
-                          value={address}
-                          onChange={(e) => setAddress(e.target.value)}
+                          {...register("address", { required: true })}
                         />
                       </div>
                     </Col>
@@ -183,8 +164,7 @@ const PersonalInformation = () => {
                           type="text"
                           placeholder="Enter your phone"
                           id="phone"
-                          value={phone}
-                          onChange={(e) => setPhone(e.target.value)}
+                          {...register("phone", { required: true })}
                         />
                       </div>
                     </Col>
@@ -198,8 +178,7 @@ const PersonalInformation = () => {
                           type="email"
                           placeholder="Enter your email"
                           id="email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
+                          {...register("email", { required: true })}
                         />
                       </div>
                     </Col>
@@ -213,8 +192,7 @@ const PersonalInformation = () => {
                           type="text"
                           placeholder="Enter your date of home number"
                           id="homeNumber"
-                          value={homeNumber}
-                          onChange={(e) => setHomeNumber(e.target.value)}
+                          {...register("homeNumber", { required: true })}
                         />
                       </div>
                     </Col>
@@ -228,8 +206,7 @@ const PersonalInformation = () => {
                           type="text"
                           placeholder="Enter your relative name"
                           id="relativeName"
-                          value={relativeName}
-                          onChange={(e) => setRelativeName(e.target.value)}
+                          {...register("relativeName", { required: true })}
                         />
                       </div>
                     </Col>

@@ -1,27 +1,33 @@
-import React, { useState } from "react";
-
-import { Link } from "react-router-dom";
-
+import React from "react";import { Link } from "react-router-dom";
 import { Col, Container, Row } from "reactstrap";
-
 import { Helmet } from "../components";
-
 import logo from "../assets/images/image-01.png";
-
 import "../styles/login.css";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+
+const schema = z.object({
+  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
+  password: z
+    .string()
+    .min(6, { message: "Password must be at least 6 characters" }),
+});
 
 const Login = () => {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(schema),
+  });
 
-  const resetForm = () => {
-    setName("");
-    setPassword("");
-  };
-
-  const submitLoginHandler = (e) => {
-    e.preventDefault();
-    resetForm();
+  const onSubmit = (data) => {
+    // Send data to API
+    console.log(data);
+    reset();
   };
 
   return (
@@ -48,7 +54,10 @@ const Login = () => {
               xs="12"
               className="m-auto text-center mb-3"
             >
-              <form className="form login__form" onSubmit={submitLoginHandler}>
+              <form
+                className="form login__form"
+                onSubmit={handleSubmit(onSubmit)}
+              >
                 <div className="form__header">
                   <img src={logo} alt="logo" className="logo" />
                   <h2 className="form__title">Login Account</h2>
@@ -61,9 +70,9 @@ const Login = () => {
                     id="name"
                     className="form__input"
                     required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    {...register("name")}
                   />
+                  {errors.name && <p>{errors.name.message}</p>}
                 </div>
                 <div className="form__group mt-3">
                   <label htmlFor="password">Enter Password</label>
@@ -73,9 +82,9 @@ const Login = () => {
                     id="password"
                     className="form__input"
                     required
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    {...register("password")}
                   />
+                  {errors.password && <p>{errors.password.message}</p>}
                 </div>
                 <div className="form__group reset__group mb-4 align-items-start">
                   <span className="reset__password">
