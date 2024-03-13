@@ -1,5 +1,4 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from "react";import { Link } from "react-router-dom";
 import { Col, Container, Row } from "reactstrap";
 import { Helmet } from "../components";
 import logo from "../assets/images/image-01.png";
