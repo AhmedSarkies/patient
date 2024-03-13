@@ -1,43 +1,10 @@
 import React from "react";import { Container, Row, Col } from "reactstrap";
-
 import { Helmet, PersonalInformationComponent } from "../components";
-
 import "../styles/personal-information.css";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { useForm } from "react-hook-form";
 import InputError from "../components/InputError/InputError";
-
-const schema = z.object({
-  name: z.string().min(3, {
-    message: "name is required and must be more than three characters",
-  }),
-  id: z.string().min(1, {
-    message: "id is required",
-  }),
-  code: z.string(),
-  birth: z.string().min(1, {
-    message: "id is required",
-  }),
-  age: z.string().min(1, {
-    message: "age is required",
-  }),
-  status: z.string().min(1, {
-    message: "status is required",
-  }),
-  address: z.string(),
-  phone: z
-    .string()
-    .min(1, {
-      message: "phone is required",
-    })
-    .max(11),
-  email: z.string().email({
-    message: "email is required",
-  }),
-  homeNumber: z.string(),
-  relativeName: z.string(),
-});
+import { personalInformationSchema } from "../schema/personalInformations";
 
 const PersonalInformation = () => {
   const {
@@ -46,12 +13,12 @@ const PersonalInformation = () => {
     reset,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(personalInformationSchema),
   });
 
   const onSubmit = (data) => {
     try {
-      schema.parse(data);
+      personalInformationSchema.parse(data);
       console.log(data);
       reset();
     } catch (error) {
